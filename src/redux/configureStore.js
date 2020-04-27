@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./reducers";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
+import thunk from "redux-thunk";
 
 export default function configureStore(initialStore) {
   const composeEnhancers =
@@ -9,6 +10,6 @@ export default function configureStore(initialStore) {
   return createStore(
     rootReducer,
     initialStore,
-    composeEnhancers(applyMiddleware(reduxImmutableStateInvariant()))
+    composeEnhancers(applyMiddleware(thunk, reduxImmutableStateInvariant())) // we can add as many pieces of middleware as we like
   );
 }
