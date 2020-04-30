@@ -8,7 +8,9 @@ import { newCourse } from "../../../tools/mockData";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 
-function ManageCoursePage({
+//this component is exporting two ManageCoursePage, the default one, below, wrapped in connect, and the raw one, that is used in testing.
+
+export function ManageCoursePage({
   courses,
   authors,
   loadAuthors,
